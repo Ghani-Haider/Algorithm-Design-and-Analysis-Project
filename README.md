@@ -1,6 +1,6 @@
 # Algorithm-Design-and-Analysis-Project
 For Projects, all groups should record their combined presentations (maximum 15 minutes) about:
--Introducing the problem
+#-Introducing the problem
 -Strategies/design techniques) used
 -Theoretical comparisons
 -Empirical comparison results from the implementation.
