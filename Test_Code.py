@@ -3,7 +3,10 @@ from Kruskal import *
 from Reverse_Delete import *
 import random
 
-n = 2000
+import sys
+sys.setrecursionlimit(1500)
+
+n = 5000
 edges = []
 nodes = []
 
