@@ -1,3 +1,5 @@
+import time
+
 def addNodes(G,nodes):
     for _ in range(len(nodes)):
         row=[]
@@ -16,8 +18,8 @@ def addEdges(G,edges,directed):
             G[i[1]][i[0]]=i[2]
     return G
 
-
 def prims(G):
+    second_ini = time.time()
     nodes = len(G)
     # picks minimum weighted edge from this
     weights = [float('inf')]* nodes
@@ -43,17 +45,20 @@ def prims(G):
             if G[minimum_index][v] > 0 and MSTset[v] == False and weights[v] > G[minimum_index][v]:
                 weights[v] = G[minimum_index][v]
                 MST[v] = minimum_index
+    second_fin = time.time()
+    return(second_fin-second_ini)
     # Display MST
-    for i in range(1, nodes):
-        print(MST[i], "-",i,"\t",G[i][MST[i]])
+    # for i in range(1, nodes):
+    #     print(MST[i], "-",i,"\t",G[i][MST[i]])
 
 
 # nodes=[0,1,2,3,4,5]
 # edges=[(0,1,4),(0,2,2),(1,2,4),(2,3,3), (2,4,2), (2,5,4), (3,5,3), (4,5,3)]
-nodes = [0,1,2,3]
-edges = [(0,1,3), (0,3,5), (1,2,1), (2,3,2)]
-G=[]
-addNodes(G,nodes)
-addEdges(G,edges,False)
-# print(G)
-prims(G)
+# nodes = [0,1,2,3,4,5,6,7,8]
+# edges = [(7,8,7), (0, 7, 8), (1, 2, 8), (1, 7, 11), (2, 3, 7), (2, 8, 2), (2, 5, 4), (3, 4, 9), (3, 5, 14), (4, 5, 10), (5, 6, 2), (6, 7, 1), (6, 8, 6), (0, 1, 4)]
+# G=[]
+# addNodes(G,nodes)
+# addEdges(G,edges,False)
+
+# # print(G)
+# prims(G)
