@@ -4,9 +4,9 @@ from Reverse_Delete import *
 import random
 
 import sys
-sys.setrecursionlimit(1500)
+sys.setrecursionlimit(5000)
 
-n = 5000
+n = 10000
 edges = []
 nodes = []
 
@@ -27,15 +27,15 @@ file.close()
 # file.close()
 
 ## Prims ###
-G = []
+G = {}
 for i in range(n+1):
     nodes.append(i)
 addNodes(G, nodes)
 addEdges(G, edges, False)
-time = prims(G)
-print("Prims in seconds = ",time)
+p_time = prims(G)
+print("Prims in seconds = ",p_time)
 file_prims = open("prims.txt", "a")
-file_prims.write(str(n)+" "+str(time)+"\n")
+file_prims.write(str(n)+" "+str(p_time)+"\n")
 file_prims.close()
 
 ## Reverse ###
