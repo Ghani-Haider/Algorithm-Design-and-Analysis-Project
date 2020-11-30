@@ -31,46 +31,43 @@ class Graph_K:
     def kruskal_algo(self):
         second_ini = time.time()
         result = []
-        i, e = 0, 0
         self.graph = sorted(self.graph, key=lambda item: item[2])
         parent = []
         rank = []
         for node in range(self.V):
             parent.append(node)
             rank.append(0)
-        while e < self.V - 1 and i < self.V:
-            u, v, w = self.graph[i]
-            i = i + 1
+        for each_edge in self.graph:
+            u, v, w = each_edge
             x = self.find(parent, u)
             y = self.find(parent, v)
             if x != y:
-                e = e + 1
                 result.append([u, v, w])
                 self.apply_union(parent, rank, x, y)
         
         second_fin = time.time()
         return(second_fin-second_ini)
+
 # # Driver Code 
 # if __name__ == "__main__": 
   
 #     # create the graph given in above fugure 
-#     V = 5
+#     V = 9
 #     g = Graph_K(V) 
   
 #     # making above shown graph 
-#     g.addedge((2, 0, 5)) 
-#     g.addedge((0, 4, 1)) 
-#     g.addedge((0, 1, 0)) 
-#     g.addedge((4, 0, 3)) 
-#     g.addedge((4, 0, 0)) 
-#     g.addedge((4, 0, 0)) 
-#     g.addedge((1, 1, 0)) 
-#     g.addedge((1, 2, 1)) 
-#     g.addedge((1, 4, 0)) 
-#     g.addedge((2, 4, 2)) 
-#     g.addedge((4, 2, 4)) 
-#     g.addedge((0, 0, 2)) 
-#     g.addedge((3, 1, 2)) 
-#     g.addedge((1, 3, 3)) 
-#     g.addedge((3, 1, 4)) 
-#     print(g.kruskal_algo())
+#     g.addedge((0, 1, 4)) 
+#     g.addedge((0, 7, 8)) 
+#     g.addedge((1, 2, 8)) 
+#     g.addedge((1, 7, 11)) 
+#     g.addedge((2, 3, 7)) 
+#     g.addedge((2, 8, 2)) 
+#     g.addedge((2, 5, 4)) 
+#     g.addedge((3, 4, 9)) 
+#     g.addedge((3, 5, 14)) 
+#     g.addedge((4, 5, 10)) 
+#     g.addedge((5, 6, 2)) 
+#     g.addedge((6, 7, 1)) 
+#     g.addedge((6, 8, 6)) 
+#     g.addedge((7, 8, 7))
+#     g.kruskal_algo()
